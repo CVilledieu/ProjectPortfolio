@@ -12,23 +12,31 @@
     padding: 1vmax;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid rgb(255, 255, 42);
+    border-bottom: 1px solid antiquewhite;
 }
 
 .mainstage{
     display: flex;
+    min-height: 85vh;
 }
 
 
 .side-bar{
-    min-height: 85vh;
+    min-width: 15vw;
     padding-left: 1vw;
     padding-right: 1vw;
     padding-top: .5vh;
     justify-content: space-between;
-    border-right: 1px solid rgb(255, 255, 42);
+    border-right: 1px solid antiquewhite;
 }
 
-.links {
+.link{
     display: flex;
+}
+
+.logo{
+    background-color: antiquewhite;
+    margin: 3px;
+    padding: 4px;
+    border-radius: 8px;
 }
