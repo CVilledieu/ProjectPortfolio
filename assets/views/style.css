@@ -1,0 +1,34 @@
+.container {
+    background-color: rgb(50,50,50);
+    color:antiquewhite;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.header{
+    padding: 1vmax;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(255, 255, 42);
+}
+
+.mainstage{
+    display: flex;
+}
+
+
+.side-bar{
+    min-height: 85vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: .5vh;
+    justify-content: space-between;
+    border-right: 1px solid rgb(255, 255, 42);
+}
+
+.links {
+    display: flex;
+}

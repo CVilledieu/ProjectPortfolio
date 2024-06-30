@@ -1,0 +1,35 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/views/style.css">
+    <title>My Portfolio</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">{{template "header"}}</div>
+        <div class="mainstage">{{template "main stage"}}</div>
+    </div>
+</body>
+</html>
+{{end}}
+
+{{define "header"}}
+<div class="title"><h1>Welcome to my back-end dev portfolio!</h1></div>
+<div class="links">{{template "links"}}</div>
+{{end}}
+
+
+{{define "main stage"}}
+    <div class="side-bar">{{template "side-bar"}}</div>
+    <div class="content">{{template "content"}}</div>
+{{end}}
+
+
+{{define "links"}}
+<div class="social"><a href="https://www.linkedin.com/in/cvilledieu/"><img src="/static/images/logos/linkedin.svg" alt="linkedin" width="40" height="40"></a></div>
+<div class="git"><a href="https://github.com/CVilledieu"><img src="/static/images/logos/github.svg" alt="Git" width="40" height="40"></a></div>
+<div class="resume">Resume</div>
+{{end}}
