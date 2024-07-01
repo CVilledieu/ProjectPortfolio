@@ -1,10 +1,9 @@
 {{define "contentTempl"}}
-<div class="projects">{{template "projectsTempl" .}}</div>
+<div class="projects">{{template "projectsTempl" .pro}}</div>
 {{end}}
 
 {{define "projectsTempl"}}
-{{range .projects}}
-<div class="projTitle"><h2>{{.Title}}</h2></div>
-<div class="projImg">{{.Description}}</div>
-{{end}}
+
+<div class="projTitle"><h2>{{.title}}</h2></div>
+<div class="projImg">{{.description}}</div>
 {{end}}

@@ -5,8 +5,6 @@ import (
 	"io"
 	"net/http"
 
-	proj "Portfolio/project"
-
 	"github.com/labstack/echo/v4"
 )
 
@@ -39,8 +37,8 @@ func home(c echo.Context) error {
 }
 
 type Page struct {
-	header   *Header
-	projects []*proj.Project
+	header Header
+	pro    Project
 }
 
 type Header struct {
@@ -49,13 +47,30 @@ type Header struct {
 
 func getHomePage() *Page {
 	return &Page{
-		header:   getHeader(),
-		projects: proj.GetListOfProjects(),
+		project: GetProject(),
 	}
 }
 
-func getHeader() *Header {
-	return &Header{
+func getHeader() Header {
+	return Header{
 		welcome: "Welcome to my back-end dev portfolio!",
 	}
+}
+
+type Project struct {
+	title       string
+	description string
+}
+
+func createProject(name, description string) Project {
+	return Project{
+		title:       name,
+		description: description,
+	}
+}
+
+func GetProject() Project {
+	names := "Password Generator"
+	descriptions := "A CLI tool to create passwords. Takes in a length between 8-12 and outputs a random series of Uppercase, lowercase, numbers, and symbols"
+	return createProject(names, descriptions)
 }
