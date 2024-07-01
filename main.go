@@ -5,6 +5,8 @@ import (
 	"io"
 	"net/http"
 
+	proj "Portfolio/project"
+
 	"github.com/labstack/echo/v4"
 )
 
@@ -12,7 +14,7 @@ func main() {
 	e := echo.New()
 	e.Static("/static", "assets")
 	e.Renderer = newTemplate()
-	e.GET("/", homeBase)
+	e.GET("/", home)
 
 	e.Logger.Fatal(e.Start(":420"))
 }
@@ -31,6 +33,29 @@ func newTemplate() *Template {
 	}
 }
 
-func homeBase(c echo.Context) error {
-	return c.Render(http.StatusOK, "index", nil)
+func home(c echo.Context) error {
+	page := getHomePage()
+	return c.Render(http.StatusOK, "index", page)
+}
+
+type Page struct {
+	header   *Header
+	projects []*proj.Project
+}
+
+type Header struct {
+	welcome string
+}
+
+func getHomePage() *Page {
+	return &Page{
+		header:   getHeader(),
+		projects: proj.GetListOfProjects(),
+	}
+}
+
+func getHeader() *Header {
+	return &Header{
+		welcome: "Welcome to my back-end dev portfolio!",
+	}
 }
