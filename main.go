@@ -24,6 +24,7 @@ type Header struct {
 type Project struct {
 	Title       string
 	Description string
+	Learning    string
 }
 
 func main() {
@@ -64,10 +65,11 @@ func getHeader() Header {
 	}
 }
 
-func createProject(n, d string) Project {
+func createProject(n, d, l string) Project {
 	return Project{
 		Title:       n,
 		Description: d,
+		Learning:    l,
 	}
 }
 
@@ -78,8 +80,12 @@ func createProjectList() []Project {
 		"A CLI tool to create passwords. Takes in a length between 8-12 and outputs a random series of Uppercase, lowercase, numbers, and symbols",
 		"A Redis inspired database",
 	}
-	for i, _ := range names {
-		list = append(list, createProject(names[i], descrip[i]))
+	learn := []string{
+		"My focus and motivation was working with the standard reader and writer",
+		"My focus was to actively use a more difficult data structure. I had built plenty of the common ones, but rarely needed to use them in my personal projects.",
+	}
+	for i := range names {
+		list = append(list, createProject(names[i], descrip[i], learn[i]))
 	}
 	return list
 }

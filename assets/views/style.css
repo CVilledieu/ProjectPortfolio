@@ -29,14 +29,19 @@
     grid-template-rows: [start]auto [header-top] 10vh [header-bottom] auto[end];
 
     .title {
+    
         grid-column-start: title-start;
         grid-column-end: title-end;
         grid-row-start: header-top;
         grid-row-end: header-bottom;
+
+        h1{
+            font-size: 2.5em;
+        }
     }
 
     .link{
-        margin: 1vh;
+        margin-top: 3vh;
         display: flex;
         grid-column-start: end;
         grid-column-end: links-start;
@@ -44,9 +49,14 @@
         grid-row-end: header-bottom;
     }
 
+
+
 }
 
-
+.langTitle {
+    margin-left: 6px;
+    padding-left: 8px;
+}
 
 .content {
     border-radius:  10px 0 0 0;
@@ -84,34 +94,45 @@
     padding-top: 2vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-}
 
 .about {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
+
+}
+
+
 
 
 .projectCSS {
     display: grid;
-    grid-template-rows: [start] 5vh [title-start] 5vh [title-end] 10vh [project-start] 10vh [project-end]
+    grid-template-columns: [start] 10vw [Des-Lrn-start] 10vw [title-start] 30vw [end];
+    grid-template-rows: [start] 5vh [title-start] 5vh [title-end] 2vh [project-start] 5vh [project-end] 2vh [learn-start] 5vh [learn-end] 5vh [end]
 }
 
 
 .projTitleCSS {
-    grid-column-start: col2;
+    grid-column-start: title-start;
     grid-column-end: end;
     grid-row-start: title-start;
     grid-row-end: title-end;
 }
 
-.projImgCSS {
-    grid-column-start: col2;
+.projDesCSS {
+    grid-column-start: Des-Lrn-start;
     grid-column-end: end;
     grid-row-start: project-start;
     grid-row-end: project-end;
+}
+
+.projLearnCSS {
+    grid-column-start: Des-Lrn-start;
+    grid-column-end: end;
+    grid-row-start: learn-start;
+    grid-row-end: learn-end;
 }
