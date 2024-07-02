@@ -1,4 +1,6 @@
+
 .container {
+    --main-bg-color: rgb(50,50,50);
     background-color: antiquewhite;
     color:antiquewhite;
     min-height: 100vh;
@@ -19,7 +21,7 @@
     margin-bottom: 1px;
 
     
-    background-color: rgb(50,50,50);
+    background-color: var(--main-bg-color);
 
     padding: 1vmax;
     display: grid;
@@ -50,7 +52,7 @@
     border-radius:  10px 0 0 0;
     margin-top: 1px;
     margin-left: 1px;
-    background-color: rgb(50,50,50);
+    background-color: var(--main-bg-color);
     grid-column-start: col2;
     grid-column-end: end;
     grid-row-start: row2;
@@ -76,7 +78,7 @@
     border-radius: 0 10px 0 0;
     margin-top: 1px;
     margin-right: 1px;
-    background-color: rgb(50,50,50);
+    background-color: var(--main-bg-color);
     padding-left: 1vw;
     padding-right: 1vw;
     padding-top: .5vh;
@@ -94,20 +96,20 @@
 }
 
 
-.projects {
+.projectCSS {
     display: grid;
     grid-template-rows: [start] 15vh [title-start] 5vh [title-end] 10vh [project-start] 20vh [project-end]
 }
 
 
-.projTitle {
+.projTitleCSS {
     grid-column-start: col2;
     grid-column-end: end;
     grid-row-start: title-start;
     grid-row-end: title-end;
 }
 
-.projImg {
+.projImgCSS {
     grid-column-start: col2;
     grid-column-end: end;
     grid-row-start: project-start;

@@ -8,6 +8,24 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
+type Template struct {
+	templates *template.Template
+}
+
+type Page struct {
+	Header  Header
+	Project Project
+}
+
+type Header struct {
+	Welcome string
+}
+
+type Project struct {
+	Title       string
+	Description string
+}
+
 func main() {
 	e := echo.New()
 	e.Static("/static", "assets")
@@ -17,8 +35,10 @@ func main() {
 	e.Logger.Fatal(e.Start(":420"))
 }
 
-type Template struct {
-	templates *template.Template
+// HTTP GET request for "/"
+func home(c echo.Context) error {
+	page := getHomePage()
+	return c.Render(http.StatusOK, "index", page)
 }
 
 func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
@@ -31,46 +51,29 @@ func newTemplate() *Template {
 	}
 }
 
-func home(c echo.Context) error {
-	page := getHomePage()
-	return c.Render(http.StatusOK, "index", page)
-}
-
-type Page struct {
-	header Header
-	pro    Project
-}
-
-type Header struct {
-	welcome string
-}
-
-func getHomePage() *Page {
-	return &Page{
-		project: GetProject(),
+func getHomePage() Page {
+	return Page{
+		Header:  getHeader(),
+		Project: createProject(),
 	}
 }
 
 func getHeader() Header {
 	return Header{
-		welcome: "Welcome to my back-end dev portfolio!",
+		Welcome: "Welcome to my back-end dev portfolio!",
 	}
 }
 
-type Project struct {
-	title       string
-	description string
-}
-
-func createProject(name, description string) Project {
+func createProject() Project {
 	return Project{
-		title:       name,
-		description: description,
+		Title:       "Password Generator",
+		Description: "A CLI tool to create passwords. Takes in a length between 8-12 and outputs a random series of Uppercase, lowercase, numbers, and symbols",
 	}
 }
 
-func GetProject() Project {
-	names := "Password Generator"
-	descriptions := "A CLI tool to create passwords. Takes in a length between 8-12 and outputs a random series of Uppercase, lowercase, numbers, and symbols"
-	return createProject(names, descriptions)
+func createProjectList() []Project {
+	list := []Project{}
+	names := []string{"Password Generator"}
+	descrip := []string{"A CLI tool to create passwords. Takes in a length between 8-12 and outputs a random series of Uppercase, lowercase, numbers, and symbols"}
+	return list
 }

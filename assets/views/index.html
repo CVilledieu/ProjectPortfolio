@@ -1,3 +1,54 @@
+{{define "projectsTempl"}}
+<div class="projTitleCSS"><h2>{{.Title}}</h2></div>
+<div class="projImgCSS">{{.Description}}</div>
+{{end}}
+
+{{define "contentTempl"}}
+<div class="projectCSS">{{template "projectsTempl" .Project}}</div>
+{{end}}
+
+
+{{define "aboutTempl"}}
+<div class="photoOfMe"><img src="/static/images/other/mewedding.jpg" alt="me" width="232" height="308"></div>
+<br>
+<div class="story">I am currently using Golang for most of my personal projects. I am planning on jumping into Zig, Rust, C, or Carbon next.</div>
+{{end}}
+
+
+{{define "techTempl"}}
+<div class="langTitle"><h3>Languages</h3></div>
+<div class="langLogos">
+    <img class="logo" src="/static/images/logos/go.svg" alt="Go" width="35" height="35">
+    <img class="logo" src="/static/images/logos/js.svg" alt="js" width="35" height="35">
+    <br>
+    <img class="logo" src="/static/images/logos/css.svg" alt="css" width="35" height="35">
+    <img class="logo" src="/static/images/logos/html.svg" alt="html" width="35" height="35">
+    <br>
+    <img class="logo" src="/static/images/logos/mysql3.svg" alt="sql" width="35" height="35">
+    <img class="logo" src="/static/images/logos/postgresql.svg" alt="sql" width="35" height="35">
+</div>
+{{end}}
+
+{{define "sidebarTempl"}}
+<div class="about">{{template "aboutTempl"}}</div>
+<div class="techstack">{{template "techTempl"}}</div>
+{{end}}
+
+
+{{define "linksTempl"}}
+<div><a href="https://www.linkedin.com/in/cvilledieu/"><img class="logo" src="/static/images/logos/linkedin.svg" alt="linkedin" width="35" height="35"></a></div>
+<div><a href="https://github.com/CVilledieu"><img class="logo" src="/static/images/logos/github.svg" alt="Git" width="35" height="35"></a></div>
+<div><a href="/static/other/resume.txt" download><img class="logo" src="/static/images/other/resume.svg" alt="Git" width="35" height="35"></a></div>
+{{end}}
+
+
+{{define "headerTempl"}}
+<div class="title"><h1>{{.Welcome}}</h1></div>
+<div class="link">{{template "linksTempl"}}</div>    
+{{end}}
+
+
+
 {{block "index" .}}
 <!DOCTYPE html>
 <html lang="en">
@@ -9,24 +60,10 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">{{template "headerTempl"}}</div>
+        <div class="header">{{template "headerTempl" .Header}}</div>
         <div class="sidebar">{{template "sidebarTempl"}}</div>
         <div class="content">{{template "contentTempl" .}}</div>
     </div>
 </body>
 </html>
-{{end}}
-
-{{define "headerTempl"}}
-<div class="title"><h1>welcome</h1></div>
-<div class="link">{{template "linksTempl"}}</div>    
-{{end}}
-
-
-
-
-{{define "linksTempl"}}
-<div><a href="https://www.linkedin.com/in/cvilledieu/"><img class="logo" src="/static/images/logos/linkedin.svg" alt="linkedin" width="35" height="35"></a></div>
-<div><a href="https://github.com/CVilledieu"><img class="logo" src="/static/images/logos/github.svg" alt="Git" width="35" height="35"></a></div>
-<div><a href="/static/other/resume.txt" download><img class="logo" src="/static/images/other/resume.svg" alt="Git" width="35" height="35"></a></div>
 {{end}}
