@@ -81,7 +81,7 @@
     background-color: var(--main-bg-color);
     padding-left: 1vw;
     padding-right: 1vw;
-    padding-top: .5vh;
+    padding-top: 2vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -98,7 +98,7 @@
 
 .projectCSS {
     display: grid;
-    grid-template-rows: [start] 15vh [title-start] 5vh [title-end] 10vh [project-start] 20vh [project-end]
+    grid-template-rows: [start] 5vh [title-start] 5vh [title-end] 10vh [project-start] 10vh [project-end]
 }
 
 

@@ -4,15 +4,11 @@
 {{end}}
 
 {{define "contentTempl"}}
-<div class="projectCSS">{{template "projectsTempl" .Project}}</div>
+    {{range .Project}}
+        <div class="projectCSS">{{template "projectsTempl" .}}</div>
+    {{end}}
 {{end}}
 
-
-{{define "aboutTempl"}}
-<div class="photoOfMe"><img src="/static/images/other/mewedding.jpg" alt="me" width="232" height="308"></div>
-<br>
-<div class="story">I am currently using Golang for most of my personal projects. I am planning on jumping into Zig, Rust, C, or Carbon next.</div>
-{{end}}
 
 
 {{define "techTempl"}}
@@ -27,6 +23,12 @@
     <img class="logo" src="/static/images/logos/mysql3.svg" alt="sql" width="35" height="35">
     <img class="logo" src="/static/images/logos/postgresql.svg" alt="sql" width="35" height="35">
 </div>
+{{end}}
+
+{{define "aboutTempl"}}
+<div class="photoOfMe"><img src="/static/images/other/mewedding.jpg" alt="me" width="232" height="308"></div>
+<br>
+<div class="story">I am currently using Golang for most of my personal projects. I am planning on jumping into Zig, Rust, C, or Carbon next.</div>
 {{end}}
 
 {{define "sidebarTempl"}}

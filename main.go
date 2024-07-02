@@ -14,7 +14,7 @@ type Template struct {
 
 type Page struct {
 	Header  Header
-	Project Project
+	Project []Project
 }
 
 type Header struct {
@@ -54,7 +54,7 @@ func newTemplate() *Template {
 func getHomePage() Page {
 	return Page{
 		Header:  getHeader(),
-		Project: createProject(),
+		Project: createProjectList(),
 	}
 }
 
@@ -64,16 +64,22 @@ func getHeader() Header {
 	}
 }
 
-func createProject() Project {
+func createProject(n, d string) Project {
 	return Project{
-		Title:       "Password Generator",
-		Description: "A CLI tool to create passwords. Takes in a length between 8-12 and outputs a random series of Uppercase, lowercase, numbers, and symbols",
+		Title:       n,
+		Description: d,
 	}
 }
 
 func createProjectList() []Project {
 	list := []Project{}
-	names := []string{"Password Generator"}
-	descrip := []string{"A CLI tool to create passwords. Takes in a length between 8-12 and outputs a random series of Uppercase, lowercase, numbers, and symbols"}
+	names := []string{"Password Generator", "My own Database"}
+	descrip := []string{
+		"A CLI tool to create passwords. Takes in a length between 8-12 and outputs a random series of Uppercase, lowercase, numbers, and symbols",
+		"A Redis inspired database",
+	}
+	for i, _ := range names {
+		list = append(list, createProject(names[i], descrip[i]))
+	}
 	return list
 }
