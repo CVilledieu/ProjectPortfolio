@@ -112,7 +112,7 @@
 .projectCSS {
     display: grid;
     grid-template-columns: [start] 10vw [Des-Lrn-start] 10vw [title-start] 30vw [end];
-    grid-template-rows: [start] 5vh [title-start] 5vh [title-end] 2vh [project-start] 5vh [project-end] 2vh [learn-start] 5vh [learn-end] 5vh [end]
+    grid-template-rows: [start] 5vh [title-start] 5vh [title-end] 2vh [project-start] 3vh [project-end] 2vh [learn-start] 3vh [learn-end] 5vh [end]
 }
 
 
